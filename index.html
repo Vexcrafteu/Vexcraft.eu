@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VexCraft - Najlepszy Serwer Chest PvP</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Nawigacja -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="VexCraft Logo" class="nav-logo-img">
+            <span class="nav-logo-text">Vex<span class="gradient-text">Craft</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Główna</a></li>
+            <li><a href="#shop">Sklep</a></li>
+            <li><a href="#about">O serwerze</a></li>
+            <li><a href="#rules">Regulamin</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Główna sekcja -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="VexCraft Logo" class="hero-logo">
+            <h1>Wejdź do świata <span class="gradient-text">VexCraft</span></h1>
+            <p>Najlepszy serwer Chest PvP w Polsce! Wersja 1.21+</p>
+            
+            <div class="buttons">
+                <div class="ip-box" onclick="copyIP()">
+                    <span id="ip-text">vexcraft.eu</span>
+                    <span class="copy-hint"><i class="fa-regular fa-copy"></i> Kliknij, aby skopiować</span>
+                </div>
+                <a href="#contact" class="btn btn-outline"><i class="fa-brands fa-discord"></i> Dołącz do Discorda</a>
+            </div>
+            
+            <div class="player-count">
+                <div class="pulse"></div>
+                <span>Graczy online: <b id="online-count">Wczytywanie...</b></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sekcja z informacjami -->
+    <section id="about" class="features">
+        <h2>Dlaczego <span class="gradient-text">VexCraft?</span></h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-users feature-icon"></i>
+                <h3>Tworzony przez graczy</h3>
+                <p>VexCraft jest stworzony dla graczy! Jesteśmy gildią z innych serwerów Chest PvP i wspólnie złączyliśmy całe nasze doświadczenie, aby zrobić jeden idealny serwer.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-box-open feature-icon"></i>
+                <h3>Unikalne Chest PvP</h3>
+                <p>Nasz tryb Chest PvP to unikalne doświadczenie z magicznymi skrzynkami, artefaktami i mnóstwem zabawy!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-shield-halved feature-icon"></i>
+                <h3>Brak Lagów</h3>
+                <p>Zoptymalizowaliśmy serwer tak, aby walki i PVP były płynne nawet przy dużej liczbie graczy na jednej arenie.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-gem feature-icon"></i>
+                <h3>Magiczne Farmy</h3>
+                <p>Posiadamy specjalne generatory stone i rud, które dają szansę na zdobycie niezwykłych magicznych esencji i mikstur!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sklep -->
+    <section id="shop" class="shop">
+        <h2>Wesprzyj serwer w <span class="gradient-text">Sklepie</span></h2>
+        <p class="shop-desc">Kupując rangę, wspierasz rozwój serwera i zyskujesz niesamowite przywileje w grze!</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 style="color: #ffaa00;">VIP</h3>
+                <div class="price">10 ZŁ</div>
+                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" class="btn btn-buy" onclick="openModal('VIP', '10.00 ZŁ'); return false;">Sprawdź korzyści</a>
+                    <a href="#" class="btn btn-buy" style="margin-top: 0;">Kup Teraz</a>
+                </div>
+            </div>
+            
+            <div class="pricing-card">
+                <h3 style="color: #ffaa00;">SVIP</h3>
+                <div class="price">20 ZŁ</div>
+                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" class="btn btn-buy" onclick="openModal('SVIP', '20.00 ZŁ'); return false;">Sprawdź korzyści</a>
+                    <a href="#" class="btn btn-buy" style="margin-top: 0;">Kup Teraz</a>
+                </div>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="badge">Najpopularniejsza</div>
+                <h3 style="color: #aa00aa;">MVIP</h3>
+                <div class="price">40 ZŁ</div>
+                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" class="btn btn-buy" onclick="openModal('MVIP', '40.00 ZŁ'); return false;">Sprawdź korzyści</a>
+                    <a href="#" class="btn btn-buy" style="margin-top: 0;">Kup Teraz</a>
+                </div>
+            </div>
+            
+            <div class="pricing-card ultimate">
+                <i class="fa-solid fa-crown crown-icon"></i>
+                <h3 style="color: #aa00aa;">VEX</h3>
+                <div class="price">60 ZŁ</div>
+                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" class="btn btn-buy btn-ultimate" onclick="openModal('VEX', '60.00 ZŁ'); return false;">Sprawdź korzyści</a>
+                    <a href="#" class="btn btn-buy btn-ultimate" style="margin-top: 0;">Kup Teraz</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sekcja Kluczy do Skrzynek -->
+        <h3 class="keys-title">Klucze do <span class="gradient-text">Skrzynek</span></h3>
+        <div class="pricing-grid keys-grid">
+            <div class="pricing-card key-card">
+                <i class="fa-solid fa-key key-icon rare"></i>
+                <h3>Klucz do Rzadkiej Skrzyni</h3>
+                <div class="price">2 ZŁ</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Szansa na cenne surowce</li>
+                    <li><i class="fa-solid fa-check"></i> Rzadkie przedmioty</li>
+                </ul>
+                <a href="#" class="btn btn-buy">Kup Teraz</a>
+            </div>
+            
+            <div class="pricing-card key-card featured">
+                <div class="badge">Polecane</div>
+                <i class="fa-solid fa-key key-icon epic"></i>
+                <h3>Klucz do Epickiej Skrzyni</h3>
+                <div class="price">5 ZŁ</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Szansa na potężne artefakty</li>
+                    <li><i class="fa-solid fa-check"></i> Epickie przedmioty PvP</li>
+                    <li><i class="fa-solid fa-check"></i> Unikalne nagrody</li>
+                </ul>
+                <a href="#" class="btn btn-buy">Kup Teraz</a>
+            </div>
+            
+            <div class="pricing-card key-card ultimate">
+                <i class="fa-solid fa-key key-icon vex"></i>
+                <h3>Klucz do Skrzyni VEX</h3>
+                <div class="price">10 ZŁ</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Gwarantowane najlepsze przedmioty</li>
+                    <li><i class="fa-solid fa-check"></i> Szansa na legendarny ekwipunek VEX</li>
+                    <li><i class="fa-solid fa-check"></i> Ekskluzywne kosmetyki</li>
+                </ul>
+                <a href="#" class="btn btn-buy btn-ultimate">Kup Teraz</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulamin -->
+    <section id="rules" class="features">
+        <h2>Nasz <span class="gradient-text">Regulamin</span></h2>
+        <p class="contact-desc" style="text-align: center; color: #aaa; margin-bottom: 40px;">Zapoznaj się z zasadami panującymi na serwerze i Discordzie. Pobierz pliki PDF poniżej.</p>
+        
+        <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 800px; margin: 0 auto;">
+            <div class="feature-card" style="text-align: center; padding: 40px 20px;">
+                <i class="fa-solid fa-file-pdf feature-icon" style="color: #f40f02; font-size: 3rem; margin-bottom: 15px;"></i>
+                <h3>Regulamin Serwera</h3>
+                <p style="margin-bottom: 20px;">Zasady obowiązujące podczas gry na serwerze VexCraft.</p>
+                <a href="#" class="btn-outline-benefits" style="display: inline-block; font-size: 1rem; padding: 10px 20px; text-decoration: none;">Pobierz PDF</a>
+            </div>
+            <div class="feature-card" style="text-align: center; padding: 40px 20px;">
+                <i class="fa-solid fa-file-pdf feature-icon" style="color: #5865F2; font-size: 3rem; margin-bottom: 15px;"></i>
+                <h3>Regulamin Discord</h3>
+                <p style="margin-bottom: 20px;">Zasady obowiązujące na naszym oficjalnym serwerze Discord.</p>
+                <a href="#" class="btn-outline-benefits" style="display: inline-block; font-size: 1rem; padding: 10px 20px; text-decoration: none;">Pobierz PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact" class="contact">
+        <h2>Bądź z nami w <span class="gradient-text">Kontakcie</span></h2>
+        <p class="contact-desc">Masz pytania lub chcesz śledzić nowości? Znajdziesz nas tutaj!</p>
+        
+        <div class="contact-grid">
+            <a href="https://discord.gg/twojlink" target="_blank" class="contact-card discord">
+                <i class="fa-brands fa-discord"></i>
+                <h3>Discord</h3>
+                <p>Dołącz do naszej społeczności</p>
+            </a>
+            
+            <a href="https://www.tiktok.com/@vexcrafteu" target="_blank" class="contact-card tiktok">
+                <i class="fa-brands fa-tiktok"></i>
+                <h3>TikTok</h3>
+                <p>Zostaw followa</p>
+            </a>
+            
+            <a href="mailto:vexcraftkontakt@gmail.com" class="contact-card email">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>E-mail</h3>
+                <p>vexcraftkontakt@gmail.com</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modal z tabelką korzyści -->
+    <div id="benefits-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Porównanie Rang</h2>
+            <div class="table-container">
+                <table class="benefits-table">
+                    <thead>
+                        <tr>
+                            <th>Cecha</th>
+                            <th>VIP</th>
+                            <th>SVIP</th>
+                            <th>MVIP</th>
+                            <th class="highlight">VEX</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nagroda za zabójstwo</td>
+                            <td>6$</td>
+                            <td>8$</td>
+                            <td>10$</td>
+                            <td>12$</td>
+                        </tr>
+                        <tr>
+                            <td>Dodatkowe zestawy (/kit)</td>
+                            <td>VIP</td>
+                            <td>VIP, SVIP</td>
+                            <td>VIP, SVIP, MVIP</td>
+                            <td>VIP, SVIP, MVIP, VEX</td>
+                        </tr>
+                        <tr>
+                            <td>Szansa na klucz (AFK)</td>
+                            <td>15.0%</td>
+                            <td>20.0%</td>
+                            <td>25.0%</td>
+                            <td>30.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Zwiększona szansa na drop esencji</td>
+                            <td>TAK</td>
+                            <td>TAK</td>
+                            <td>TAK</td>
+                            <td>TAK</td>
+                        </tr>
+                        <tr>
+                            <td>Darmowe enderchesty</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Dostępne komendy</td>
+                            <td>/sellall, /wb</td>
+                            <td>+ /incognito, /repair</td>
+                            <td>+ /ec</td>
+                            <td>+ /repairall</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-price">Koszt usługi: <br><b id="modal-price-val">-- ZŁ</b></div>
+                <a href="#" class="btn-buy-modal" style="margin-top: 0;" onclick="closeModal()">Kup Teraz <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VexCraft. Wszelkie prawa zastrzeżone.</p>
+        <p class="small-text">Nie jesteśmy powiązani z Mojang AB.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
