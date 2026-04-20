@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -92,30 +92,33 @@
         
         <div class="pricing-grid">
             <div class="pricing-card">
+                <i class="fa-solid fa-star crown-icon" style="color: #ffaa00;"></i>
                 <h3 style="color: #ffaa00;">VIP</h3>
                 <div class="price">10 ZŁ</div>
-                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="card-buttons" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
                     <a href="#" class="btn btn-buy" onclick="openModal('VIP', '10.00 ZŁ'); return false;">Sprawdź korzyści</a>
-                    <a href="#" class="btn btn-buy" style="margin-top: 0;">Kup Teraz</a>
+                    <a href="#" class="btn btn-buy" style="margin-top: 0;" onclick="openPaymentModal('VIP', '10.00 ZŁ'); return false;">Kup Teraz</a>
                 </div>
             </div>
             
             <div class="pricing-card">
+                <i class="fa-solid fa-shield-halved crown-icon" style="color: #ffaa00;"></i>
                 <h3 style="color: #ffaa00;">SVIP</h3>
                 <div class="price">20 ZŁ</div>
-                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="card-buttons" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
                     <a href="#" class="btn btn-buy" onclick="openModal('SVIP', '20.00 ZŁ'); return false;">Sprawdź korzyści</a>
-                    <a href="#" class="btn btn-buy" style="margin-top: 0;">Kup Teraz</a>
+                    <a href="#" class="btn btn-buy" style="margin-top: 0;" onclick="openPaymentModal('SVIP', '20.00 ZŁ'); return false;">Kup Teraz</a>
                 </div>
             </div>
             
             <div class="pricing-card featured">
                 <div class="badge">Najpopularniejsza</div>
+                <i class="fa-solid fa-gem crown-icon" style="color: #aa00aa;"></i>
                 <h3 style="color: #aa00aa;">MVIP</h3>
                 <div class="price">40 ZŁ</div>
-                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="card-buttons" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
                     <a href="#" class="btn btn-buy" onclick="openModal('MVIP', '40.00 ZŁ'); return false;">Sprawdź korzyści</a>
-                    <a href="#" class="btn btn-buy" style="margin-top: 0;">Kup Teraz</a>
+                    <a href="#" class="btn btn-buy" style="margin-top: 0;" onclick="openPaymentModal('MVIP', '40.00 ZŁ'); return false;">Kup Teraz</a>
                 </div>
             </div>
             
@@ -123,9 +126,9 @@
                 <i class="fa-solid fa-crown crown-icon"></i>
                 <h3 style="color: #aa00aa;">VEX</h3>
                 <div class="price">60 ZŁ</div>
-                <div class="card-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="card-buttons" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
                     <a href="#" class="btn btn-buy btn-ultimate" onclick="openModal('VEX', '60.00 ZŁ'); return false;">Sprawdź korzyści</a>
-                    <a href="#" class="btn btn-buy btn-ultimate" style="margin-top: 0;">Kup Teraz</a>
+                    <a href="#" class="btn btn-buy btn-ultimate" style="margin-top: 0;" onclick="openPaymentModal('VEX', '60.00 ZŁ'); return false;">Kup Teraz</a>
                 </div>
             </div>
         </div>
@@ -137,11 +140,13 @@
                 <i class="fa-solid fa-key key-icon rare"></i>
                 <h3>Klucz do Rzadkiej Skrzyni</h3>
                 <div class="price">2 ZŁ</div>
-                <ul>
+                <ul style="margin-bottom: 20px;">
                     <li><i class="fa-solid fa-check"></i> Szansa na cenne surowce</li>
                     <li><i class="fa-solid fa-check"></i> Rzadkie przedmioty</li>
                 </ul>
-                <a href="#" class="btn btn-buy">Kup Teraz</a>
+                <div class="card-buttons" style="margin-top: auto;">
+                    <a href="#" class="btn btn-buy" onclick="openPaymentModal('Klucz do Rzadkiej Skrzyni', '2.00 ZŁ'); return false;">Kup Teraz</a>
+                </div>
             </div>
             
             <div class="pricing-card key-card featured">
@@ -149,24 +154,28 @@
                 <i class="fa-solid fa-key key-icon epic"></i>
                 <h3>Klucz do Epickiej Skrzyni</h3>
                 <div class="price">5 ZŁ</div>
-                <ul>
+                <ul style="margin-bottom: 20px;">
                     <li><i class="fa-solid fa-check"></i> Szansa na potężne artefakty</li>
                     <li><i class="fa-solid fa-check"></i> Epickie przedmioty PvP</li>
                     <li><i class="fa-solid fa-check"></i> Unikalne nagrody</li>
                 </ul>
-                <a href="#" class="btn btn-buy">Kup Teraz</a>
+                <div class="card-buttons" style="margin-top: auto;">
+                    <a href="#" class="btn btn-buy" onclick="openPaymentModal('Klucz do Epickiej Skrzyni', '5.00 ZŁ'); return false;">Kup Teraz</a>
+                </div>
             </div>
             
             <div class="pricing-card key-card ultimate">
                 <i class="fa-solid fa-key key-icon vex"></i>
                 <h3>Klucz do Skrzyni VEX</h3>
                 <div class="price">10 ZŁ</div>
-                <ul>
+                <ul style="margin-bottom: 20px;">
                     <li><i class="fa-solid fa-check"></i> Gwarantowane najlepsze przedmioty</li>
                     <li><i class="fa-solid fa-check"></i> Szansa na legendarny ekwipunek VEX</li>
                     <li><i class="fa-solid fa-check"></i> Ekskluzywne kosmetyki</li>
                 </ul>
-                <a href="#" class="btn btn-buy btn-ultimate">Kup Teraz</a>
+                <div class="card-buttons" style="margin-top: auto;">
+                    <a href="#" class="btn btn-buy btn-ultimate" onclick="openPaymentModal('Klucz do Skrzyni VEX', '10.00 ZŁ'); return false;">Kup Teraz</a>
+                </div>
             </div>
         </div>
     </section>
@@ -174,20 +183,34 @@
     <!-- Regulamin -->
     <section id="rules" class="features">
         <h2>Nasz <span class="gradient-text">Regulamin</span></h2>
-        <p class="contact-desc" style="text-align: center; color: #aaa; margin-bottom: 40px;">Zapoznaj się z zasadami panującymi na serwerze i Discordzie. Pobierz pliki PDF poniżej.</p>
+        <p class="contact-desc" style="text-align: center; color: #aaa; margin-bottom: 40px;">Zapoznaj się z zasadami panującymi na serwerze i w sklepie. Pobierz pliki PDF poniżej.</p>
         
-        <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 800px; margin: 0 auto;">
-            <div class="feature-card" style="text-align: center; padding: 40px 20px;">
+        <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 1100px; margin: 0 auto;">
+            <div class="feature-card" style="text-align: center; padding: 40px 20px; display: flex; flex-direction: column;">
                 <i class="fa-solid fa-file-pdf feature-icon" style="color: #f40f02; font-size: 3rem; margin-bottom: 15px;"></i>
                 <h3>Regulamin Serwera</h3>
                 <p style="margin-bottom: 20px;">Zasady obowiązujące podczas gry na serwerze VexCraft.</p>
-                <a href="#" class="btn-outline-benefits" style="display: inline-block; font-size: 1rem; padding: 10px 20px; text-decoration: none;">Pobierz PDF</a>
+                <div style="margin-top: auto;">
+                    <a href="#" class="btn btn-buy">Pobierz PDF</a>
+                </div>
             </div>
-            <div class="feature-card" style="text-align: center; padding: 40px 20px;">
+            
+            <div class="feature-card" style="text-align: center; padding: 40px 20px; display: flex; flex-direction: column;">
+                <i class="fa-solid fa-file-invoice feature-icon" style="color: #ffaa00; font-size: 3rem; margin-bottom: 15px;"></i>
+                <h3>Regulamin Sklepu</h3>
+                <p style="margin-bottom: 20px;">Zasady dokonywania zakupów w naszym sklepie internetowym.</p>
+                <div style="margin-top: auto;">
+                    <a href="#" class="btn btn-buy">Pobierz PDF</a>
+                </div>
+            </div>
+            
+            <div class="feature-card" style="text-align: center; padding: 40px 20px; display: flex; flex-direction: column;">
                 <i class="fa-solid fa-file-pdf feature-icon" style="color: #5865F2; font-size: 3rem; margin-bottom: 15px;"></i>
                 <h3>Regulamin Discord</h3>
                 <p style="margin-bottom: 20px;">Zasady obowiązujące na naszym oficjalnym serwerze Discord.</p>
-                <a href="#" class="btn-outline-benefits" style="display: inline-block; font-size: 1rem; padding: 10px 20px; text-decoration: none;">Pobierz PDF</a>
+                <div style="margin-top: auto;">
+                    <a href="#" class="btn btn-buy">Pobierz PDF</a>
+                </div>
             </div>
         </div>
     </section>
@@ -282,7 +305,7 @@
             </div>
             <div class="modal-footer">
                 <div class="modal-price">Koszt usługi: <br><b id="modal-price-val">-- ZŁ</b></div>
-                <a href="#" class="btn-buy-modal" style="margin-top: 0;" onclick="closeModal()">Kup Teraz <i class="fa-solid fa-chevron-right"></i></a>
+                <a href="#" class="btn-buy-modal" style="margin-top: 0;" onclick="openPaymentModal(); return false;">Kup Teraz <i class="fa-solid fa-chevron-right"></i></a>
             </div>
         </div>
     </div>
@@ -292,6 +315,38 @@
         <p>&copy; 2026 VexCraft. Wszelkie prawa zastrzeżone.</p>
         <p class="small-text">Nie jesteśmy powiązani z Mojang AB.</p>
     </footer>
+
+    <!-- Modal Płatności -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <span class="close-modal" onclick="closePaymentModal()">&times;</span>
+            <h2 id="payment-title">Zakup rangi <span class="highlight">VIP</span></h2>
+            <p style="color: #aaa; margin-bottom: 20px;">Wybrana kwota: <b id="payment-price" style="color: #fff;">10.00 ZŁ</b></p>
+            
+            <div class="form-group">
+                <label for="mc-nick">Twój nick z Minecraft:</label>
+                <input type="text" id="mc-nick" class="mc-nick-input" placeholder="np. VexPlayer123" required>
+            </div>
+
+            <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 1.1rem; color: #ccc;">Wybierz metodę płatności:</h3>
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectPayment(this, 'blik')">
+                    <div style="background: #fff; padding: 2px 10px; border-radius: 4px; color: #000; font-weight: 900; font-family: Arial; letter-spacing: 1px; font-size: 16px;">BLIK</div>
+                </div>
+                <div class="payment-method" onclick="selectPayment(this, 'psc')">
+                    <div style="background: #007cc2; padding: 2px 8px; border-radius: 4px; color: #fff; font-weight: bold; font-family: Arial; font-size: 14px;">paysafecard</div>
+                </div>
+                <div class="payment-method" onclick="selectPayment(this, 'sms')">
+                    <i class="fa-solid fa-mobile-screen" style="font-size: 24px; color: #fff;"></i>
+                    <span style="margin-top: 5px;">SMS</span>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="margin-top: 30px; justify-content: center; background: none; padding: 0;">
+                <a href="#" class="btn-buy-modal" style="width: 100%; justify-content: center;" onclick="processPayment(); return false;">Przejdź do płatności <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

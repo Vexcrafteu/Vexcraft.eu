@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 /* Modal z tabelką */
@@ -389,6 +389,86 @@ body {
     box-shadow: 0 0 15px rgba(142, 98, 255, 0.3), inset 0 0 10px rgba(142, 98, 255, 0.2);
 }
 
+/* Modal Płatności */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.form-group label {
+    color: #ccc;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.mc-nick-input {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #333;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.mc-nick-input:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.payment-method {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    height: 100px;
+}
+
+.payment-method img {
+    max-height: 35px;
+    max-width: 80%;
+    object-fit: contain;
+}
+
+.payment-method i {
+    font-size: 32px;
+    color: #fff;
+}
+
+.payment-method:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.payment-method.selected {
+    border-color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+.payment-method span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .btn-outline {
     border: 2px solid #5865F2; /* Discord color */
     color: #fff;
@@ -527,6 +607,8 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    min-height: 480px;
 }
 
 .pricing-card:hover {
@@ -579,6 +661,7 @@ body {
     font-weight: 600;
     transition: all 0.3s;
     width: 100%;
+    margin-top: auto;
 }
 
 .btn-buy:hover {
@@ -768,8 +851,31 @@ footer {
 
 /* Responsywność */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: block; }
+    .nav-links { 
+        position: absolute;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(21, 21, 26, 0.98);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 30px 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        display: flex; /* Nadpisuje ewentualne ukrycie */
+    }
+    
+    .nav-links.nav-active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .hamburger { display: block; cursor: pointer; font-size: 1.5rem; color: #fff; }
+    
     .hero h1 { font-size: 3rem; }
     .buttons { flex-direction: column; }
     .ip-box { width: 100%; }

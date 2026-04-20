@@ -45,10 +45,49 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Aktualizowanie graczy co 60 sekund
     setInterval(fetchPlayerCount, 60000);
+
+    // Obsługa Hamburger Menu na urządzeniach mobilnych
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+        
+        // Zmiana ikony z 3 pasków na X (opcjonalnie)
+        const icon = hamburger.querySelector('i');
+        if(navLinks.classList.contains('nav-active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Zamknięcie menu po kliknięciu w link
+    const navItems = document.querySelectorAll('.nav-links li a');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if(navLinks.classList.contains('nav-active')) {
+                navLinks.classList.remove('nav-active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
 });
+
+// Zmienne do płatności
+window.currentRank = '';
+window.currentPrice = '';
+let selectedPaymentMethod = '';
 
 // Modal logic
 function openModal(rank, price) {
+    window.currentRank = rank;
+    window.currentPrice = price;
+    
     const modal = document.getElementById('benefits-modal');
     const title = document.getElementById('modal-title');
     const priceVal = document.getElementById('modal-price-val');
@@ -86,9 +125,57 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
+// Logika modalu płatności
+function openPaymentModal(rank, price) {
+    // Jeśli modal z korzyściami jest otwarty, zamknij go
+    closeModal();
+    
+    const finalRank = rank || window.currentRank;
+    const finalPrice = price || window.currentPrice;
+
+    document.getElementById('payment-title').innerHTML = "Zakup rangi <span class='highlight'>" + finalRank + "</span>";
+    document.getElementById('payment-price').innerText = finalPrice;
+    
+    // Resetuj pola
+    document.getElementById('mc-nick').value = '';
+    selectedPaymentMethod = '';
+    document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
+
+    document.getElementById('payment-modal').style.display = 'flex';
+}
+
+function closePaymentModal() {
+    document.getElementById('payment-modal').style.display = 'none';
+}
+
+function selectPayment(element, method) {
+    selectedPaymentMethod = method;
+    document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+}
+
+function processPayment() {
+    const nick = document.getElementById('mc-nick').value.trim();
+    if (!nick) {
+        alert('Proszę podać swój nick z Minecraft!');
+        return;
+    }
+    if (!selectedPaymentMethod) {
+        alert('Proszę wybrać metodę płatności!');
+        return;
+    }
+    
+    alert('Przekierowywanie do płatności (' + selectedPaymentMethod.toUpperCase() + ') dla gracza ' + nick + '...');
+    // Tutaj w przyszłości można dodać window.location.href do bramki płatności
+}
+
 window.onclick = function(event) {
-    const modal = document.getElementById('benefits-modal');
-    if (event.target == modal) {
-        modal.style.display = "none";
+    const benefitsModal = document.getElementById('benefits-modal');
+    const paymentModal = document.getElementById('payment-modal');
+    if (event.target == benefitsModal) {
+        benefitsModal.style.display = "none";
+    }
+    if (event.target == paymentModal) {
+        paymentModal.style.display = "none";
     }
 }
