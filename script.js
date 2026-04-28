@@ -53,7 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('nav-active');
         
-        // Zmiana ikony z 3 pasków na X (opcjonalnie)
+        // Zablokuj przewijanie strony, gdy menu jest otwarte
+        if (navLinks.classList.contains('nav-active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Zmiana ikony z 3 pasków na X
         const icon = hamburger.querySelector('i');
         if(navLinks.classList.contains('nav-active')) {
             icon.classList.remove('fa-bars');
@@ -70,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener('click', () => {
             if(navLinks.classList.contains('nav-active')) {
                 navLinks.classList.remove('nav-active');
+                document.body.style.overflow = 'auto'; // Odblokuj przewijanie
                 const icon = hamburger.querySelector('i');
                 icon.classList.remove('fa-xmark');
                 icon.classList.add('fa-bars');
@@ -133,15 +141,40 @@ function openPaymentModal(rank, price) {
     const finalRank = rank || window.currentRank;
     const finalPrice = price || window.currentPrice;
 
-    document.getElementById('payment-title').innerHTML = "Zakup rangi <span class='highlight'>" + finalRank + "</span>";
+    window.basePrice = parseFloat(finalPrice.replace(' ZŁ', ''));
+    window.isKey = finalRank.toLowerCase().includes('klucz');
+
+    document.getElementById('payment-title').innerHTML = "Zakup: <span class='highlight'>" + finalRank + "</span>";
     document.getElementById('payment-price').innerText = finalPrice;
     
+    // Obsługa suwaka dla kluczy
+    const quantitySelector = document.getElementById('quantity-selector');
+    const quantityInput = document.getElementById('key-quantity');
+    const quantityVal = document.getElementById('quantity-val');
+
+    if (window.isKey) {
+        quantitySelector.style.display = 'block';
+        quantityInput.value = 1;
+        quantityVal.innerText = 1;
+    } else {
+        quantitySelector.style.display = 'none';
+    }
+
     // Resetuj pola
     document.getElementById('mc-nick').value = '';
+    document.getElementById('user-email').value = '';
     selectedPaymentMethod = '';
     document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
 
     document.getElementById('payment-modal').style.display = 'flex';
+}
+
+function updatePrice() {
+    const quantity = document.getElementById('key-quantity').value;
+    document.getElementById('quantity-val').innerText = quantity;
+    
+    const totalPrice = (window.basePrice * quantity).toFixed(2);
+    document.getElementById('payment-price').innerText = totalPrice + " ZŁ";
 }
 
 function closePaymentModal() {

@@ -323,9 +323,24 @@
             <h2 id="payment-title">Zakup rangi <span class="highlight">VIP</span></h2>
             <p style="color: #aaa; margin-bottom: 20px;">Wybrana kwota: <b id="payment-price" style="color: #fff;">10.00 ZŁ</b></p>
             
+            <!-- Suwak ilości (widoczny tylko dla kluczy) -->
+            <div id="quantity-selector" class="form-group" style="display: none; margin-bottom: 25px;">
+                <label for="key-quantity">Ilość: <b id="quantity-val" class="highlight">1</b> szt.</label>
+                <input type="range" id="key-quantity" min="1" max="64" value="1" class="slider" oninput="updatePrice()">
+                <div class="slider-labels">
+                    <span>1</span>
+                    <span>32</span>
+                    <span>64</span>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="mc-nick">Twój nick z Minecraft:</label>
                 <input type="text" id="mc-nick" class="mc-nick-input" placeholder="np. VexPlayer123" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="user-email">Twój Email:</label>
+                <input type="email" id="user-email" placeholder="np. kontakt@vexcraft.pl" class="mc-nick-input">
             </div>
 
             <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 1.1rem; color: #ccc;">Wybierz metodę płatności:</h3>
